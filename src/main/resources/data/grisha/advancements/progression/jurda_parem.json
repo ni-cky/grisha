@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "grisha:jurda_parem"
+    },
+    "title": {
+      "translate": "advancements.grisha.jurda_parem.title"
+    },
+    "description": {
+      "translate": "advancements.grisha.jurda_parem.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "grisha:progression/jurda_prime",
+  "criteria": {
+    "grisha:jurda_parem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:jurda_parem"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "grisha:jurda_parem"
+    ]
+  ]
+}

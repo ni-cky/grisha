@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:campfire"
+    },
+    "title": {
+      "translate": "advancements.grisha.find_small_palace.title"
+    },
+    "description": {
+      "translate": "advancements.grisha.find_small_palace.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "grisha:progression/find_campsite",
+  "criteria": {
+    "campsite": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "grisha:small_palace"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "campsite"
+    ]
+  ]
+}

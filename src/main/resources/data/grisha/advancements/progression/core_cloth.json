@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "grisha:core_cloth"
+    },
+    "title": {
+      "translate": "advancements.grisha.core_cloth.title"
+    },
+    "description": {
+      "translate": "advancements.grisha.core_cloth.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "grisha:progression/root",
+  "criteria": {
+    "grisha:core_cloth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:core_cloth"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "grisha:core_cloth"
+    ]
+  ],
+    "rewards": {
+        "recipes": []
+    }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{pages:[\"[\\\"\\\",{\\\"text\\\":\\\"Entry #27\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject resists and is killed before being able to be put into their cell.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Corporalki, Kerch\\\"]\",\"[\\\"\\\",{\\\"text\\\":\\\"Entry #28\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject shows no effects.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Etherealki, Kerch\\\"]\",\"[\\\"\\\",{\\\"text\\\":\\\"Entry #29\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Lost five Drueskelle upon applying the dosage.\\\",\\\"\\\\n\\\",\\\"Note: Apply one way glass to the cells.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Corporalki, Ravka\\\"]\"],title:\"Druesje Reports #1\",author:\"Jarl Brum\"}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{pages:[\"[\\\"\\\",{\\\"text\\\":\\\"Entry #147\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject kills themselves before the dosage can be applied.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Corporalki, Novyi Zem\\\"]\",\"[\\\"\\\",{\\\"text\\\":\\\"Entry #148\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject is able to propell themselves through the air at will and is able to resist gravity without large effort.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Etherealki, Shu Han\\\"]\"],title:\"Druesje Reports #2\",author:\"Jarl Brum\"}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{pages:[\"[\\\"\\\",{\\\"text\\\":\\\"Entry #323\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject succumbs to Parem after 3 hours of resisting.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Corporalki, Kerch\\\"]\",\"[\\\"\\\",{\\\"text\\\":\\\"Entry #324\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject succumbs to Parem after 5 minutes of resisting.\\\",\\\"\\\\n\\\",\\\"A lower Dosage is adviced.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Etherealki, Ravka\\\"]\",\"[\\\"\\\",{\\\"text\\\":\\\"Entry #325\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject is able to instantly create core cloth by holding four pieces of fabric in one and eight iron ingots in the other hand.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Materialki, Ravka\\\"]\"],title:\"Druesje Reports #3\",author:\"Jarl Brum\"}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{pages:[\"[\\\"\\\",{\\\"text\\\":\\\"Entry #457\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"The subject is able to transform two parts of iron into equal parts gold under the influence of Parem.\\\",\\\"\\\\n\\\",\\\"\\\\n\\\",{\\\"text\\\":\\\"Subject:\\\",\\\"bold\\\":true},\\\"\\\\n\\\",\\\"Materialki, Shu Han\\\"]\"],title:\"Druesje Reports #4\",author:\"Jarl Brum\"}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

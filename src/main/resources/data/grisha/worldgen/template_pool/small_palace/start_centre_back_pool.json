@@ -1,0 +1,15 @@
+{
+ "name": "repurposed_structures:small_palace/start_centre_back_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "grisha:small_palace/small_palace_centre_back",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.nicky.grisha.structures.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "NoiseChunkGeneratorMixin",
+    "StructuresConfigAccessor"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
+

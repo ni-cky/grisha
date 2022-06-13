@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "grisha",
+  "version": "1.3.1",
+
+  "name": "Grisha",
+  "description": "This mod brings the magic system of the Shadow and Bone Netflix series into Minecraft.",
+  "authors": [
+    "nicky"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/grisha-1-17-1-minecraft-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/grisha/textures/items/jurda_seeds.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.nicky.grisha.Grisha",
+      "com.nicky.grisha.structures.StructuresMain",
+      "com.nicky.grisha.projectile_tutorial.ProjectileTutorialMod",
+      "com.nicky.grisha.features.GrishaFeature",
+      "com.nicky.grisha.entity.GrishaEntityInit"
+    ],
+    "client": [ 
+      "com.nicky.grisha.GrishaClient",
+      "com.nicky.grisha.projectile_tutorial.ProjectileTutorialModClient",
+      "com.nicky.grisha.entity.GrishaEntityInitClient"
+    ]
+  },
+  "mixins": [
+    "grisha.mixins.json",
+    "grisha.mixin.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+  "accessWidener": "grishamaterialkicraftingrecipe.accesswidener"
+}

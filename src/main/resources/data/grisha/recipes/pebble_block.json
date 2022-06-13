@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": {
+            "item": "grisha:pebble"
+        }
+    },
+    "result": {
+        "item": "grisha:pebble_block",
+        "count": 1
+    },
+    "group": "Pebble Block"
+}

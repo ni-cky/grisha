@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smoking",
+    "ingredient": {
+        "item": "grisha:jurda_prime"
+    },
+    "result": "grisha:jurda_parem",
+    "experience": 1.0,
+    "cookingtime": 80
+}

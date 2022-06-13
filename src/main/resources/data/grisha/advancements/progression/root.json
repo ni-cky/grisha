@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "grisha:jurda_seeds"
+    },
+    "title": {
+      "translate": "advancements.grisha.root.title"
+    },
+    "description": {
+      "translate": "advancements.grisha.root.description"
+    },
+    "background": "grisha:textures/blocks/pebble_block.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "jurda_seeds": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:jurda_seeds"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "jurda_seeds"
+    ]
+  ]
+}

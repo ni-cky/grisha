@@ -1,0 +1,47 @@
+{
+  "parent": "grisha:recipes/root",
+  "criteria": {
+    "has_core_cloth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:core_cloth"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "grisha:kefta_blue_hood"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_core_cloth",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "grisha:kefta_blue_hood",
+      "grisha:kefta_blue_chestplate",
+      "grisha:kefta_blue_leggings",
+      "grisha:kefta_blue_boots",
+      "grisha:kefta_purple_hood",
+      "grisha:kefta_purple_chestplate",
+      "grisha:kefta_purple_leggings",
+      "grisha:kefta_purple_boots",
+      "grisha:kefta_red_hood",
+      "grisha:kefta_red_chestplate",
+      "grisha:kefta_red_leggings",
+      "grisha:kefta_red_boots",
+      "grisha:cloth_bag"
+    ]
+  }
+}
+

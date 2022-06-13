@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#B#",
+        "# #"
+    ],
+    "key": {
+        "#": {
+            "item": "grisha:core_cloth"
+        },
+        "B": {
+            "item": "minecraft:red_dye"
+        }
+    },
+    "result": {
+        "item": "grisha:kefta_red_leggings",
+        "count": 1
+    },
+    "group": "Kefta Leggings"
+}

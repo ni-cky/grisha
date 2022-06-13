@@ -1,0 +1,66 @@
+{ 
+	
+	"item.grisha.pebble": "Pebble",
+	"item.grisha.core_cloth": "Core Cloth",
+	"item.grisha.jurda_seeds": "Jurda",
+	"item.grisha.refined_jurda": "Refined Jurda",
+	"item.grisha.jurda_prime": "Jurda Prime",
+	"item.grisha.jurda_parem": "Jurda Parem",
+	"death.attack.jurdaParemAddiction": "%1$s died to side effects",
+	"effect.grisha.jurda_parem_effect": "Jurda Parem",
+	"effect.grisha.jurda_parem_addiction_phase0": "Addiction",
+	"effect.grisha.jurda_parem_addiction_phase1": "Addiction",
+	"effect.grisha.jurda_parem_addiction_phase2": "Addiction",
+	"effect.grisha.jurda_parem_addiction_phase3": "Addiction",
+
+	
+	"item.grisha.kefta_purple_hood": "Materialki Kefta Hood",
+	"item.grisha.kefta_purple_chestplate": "Materialki Kefta Chestplate",
+	"item.grisha.kefta_purple_leggings": "Materialki Kefta Leggings",
+	"item.grisha.kefta_purple_boots": "Materialki Kefta Boots",
+
+	"item.grisha.kefta_red_hood": "Corpoalki Kefta Hood",
+	"item.grisha.kefta_red_chestplate": "Corpoalki Kefta Chestplate",
+	"item.grisha.kefta_red_leggings": "Corpoalki Kefta Leggings",
+	"item.grisha.kefta_red_boots": "Corpoalki Kefta Boots",
+
+	"item.grisha.kefta_blue_hood": "Etherealki Kefta Hood",
+	"item.grisha.kefta_blue_chestplate": "Etherealki Kefta Chestplate",
+	"item.grisha.kefta_blue_leggings": "Etherealki Kefta Leggings",
+	"item.grisha.kefta_blue_boots": "Etherealki Kefta Boots",
+
+	"item.grisha.cloth_bag": "Cloth Bag",
+	
+	"block.grisha.pebble_block": "Pebble Block",
+
+	
+	
+	"enchantment.grisha.amplifier": "Amplifier",
+	"itemgroup.grisha.general": "Grisha: General",
+
+	"itemGroup.grisha.general": "Grisha Mod",
+
+	
+	"category.grisha.small_science": "Small Science",
+	"key.grisha.cast": "Cast",
+	
+	"advancements.grisha.root.title": "Orange Petals",
+	"advancements.grisha.root.description": "A flower promising more.",
+	"advancements.grisha.find_campsite.title": "Drueskelle's Duty",
+	"advancements.grisha.find_campsite.description": "Find the hiding Grisha.",
+	"advancements.grisha.find_small_palace.title": "The Little Palace",
+	"advancements.grisha.find_small_palace.description": "Find home to the Second Army.",
+	"advancements.grisha.core_cloth.title": "Core Cloth",
+	"advancements.grisha.core_cloth.description": "Able to protect against arrows.",
+	"advancements.grisha.kefta.title": "Kefta",
+	"advancements.grisha.kefta.description": "A garment worn by true Grisha.",
+	"advancements.grisha.refined_jurda.title": "Refined Jurda",
+	"advancements.grisha.refined_jurda.description": "Heat Jurda Petals to remove the color.",
+	"advancements.grisha.jurda_prime.title": "Jurda Prime",
+	"advancements.grisha.jurda_prime.description": "Add all the powders on hand.",
+	"advancements.grisha.jurda_parem.title": "Jurda Parem",
+	"advancements.grisha.jurda_parem.description": "A sweet, tempting powder.",
+	"advancements.grisha.addiction.title": "???",
+	"advancements.grisha.addiction.description": "The problem with wanting is that it makes us weak."
+
+}

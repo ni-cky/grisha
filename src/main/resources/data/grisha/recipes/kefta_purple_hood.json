@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#B#"
+    ],
+    "key": {
+        "#": {
+            "item": "grisha:core_cloth"
+        },
+        "B": {
+            "item": "minecraft:purple_dye"
+        }
+    },
+    "result": {
+        "item": "grisha:kefta_purple_hood",
+        "count": 1
+    },
+    "group": "Kefta Hood"
+}

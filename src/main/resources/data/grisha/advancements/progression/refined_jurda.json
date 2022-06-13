@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "grisha:refined_jurda"
+    },
+    "title": {
+      "translate": "advancements.grisha.refined_jurda.title"
+    },
+    "description": {
+      "translate": "advancements.grisha.refined_jurda.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "grisha:progression/root",
+  "criteria": {
+    "grisha:refined_jurda": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:refined_jurda"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "grisha:refined_jurda"
+    ]
+  ]
+}

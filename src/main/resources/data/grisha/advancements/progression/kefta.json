@@ -1,0 +1,112 @@
+{
+  "display": {
+    "icon": {
+      "item": "grisha:kefta_purple_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.grisha.kefta.title"
+    },
+    "description": {
+      "translate": "advancements.grisha.kefta.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "grisha:progression/core_cloth",
+  "criteria": {
+    "grisha:kefta_purple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:kefta_purple_hood"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_purple_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_purple_leggings"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_purple_boots"
+            ]
+          }
+        ]
+      }
+    },
+    "grisha:kefta_blue": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:kefta_blue_hood"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_blue_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_blue_leggings"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_blue_boots"
+            ]
+          }
+        ]
+      }
+    },
+    "grisha:kefta_red": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "grisha:kefta_red_hood"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_red_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_red_leggings"
+            ]
+          },
+          {
+            "items": [
+              "grisha:kefta_red_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "grisha:kefta_purple",
+      "grisha:kefta_blue",
+      "grisha:kefta_red"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

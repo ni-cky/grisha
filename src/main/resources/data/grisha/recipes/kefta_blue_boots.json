@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#B#",
+        "# #"
+    ],
+    "key": {
+        "#": {
+            "item": "grisha:core_cloth"
+        },
+        "B": {
+            "item": "minecraft:blue_dye"
+        }
+    },
+    "result": {
+        "item": "grisha:kefta_blue_boots",
+        "count": 1
+    },
+    "group": "Kefta Boots"
+}

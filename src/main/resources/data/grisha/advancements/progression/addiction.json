@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "grisha:jurda_parem"
+    },
+    "title": {
+      "translate": "advancements.grisha.addiction.title"
+    },
+    "description": {
+      "translate": "advancements.grisha.addiction.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "grisha:progression/jurda_parem",
+   "criteria": {
+    "addiction": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "grisha:jurda_parem"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "addiction"
+    ]
+  ]
+}
