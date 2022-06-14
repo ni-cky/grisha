@@ -20,13 +20,11 @@
     "main": [
       "com.nicky.grisha.Grisha",
       "com.nicky.grisha.structures.StructuresMain",
-      "com.nicky.grisha.projectile_tutorial.ProjectileTutorialMod",
       "com.nicky.grisha.features.GrishaFeature",
       "com.nicky.grisha.entity.GrishaEntityInit"
     ],
     "client": [ 
       "com.nicky.grisha.GrishaClient",
-      "com.nicky.grisha.projectile_tutorial.ProjectileTutorialModClient",
       "com.nicky.grisha.entity.GrishaEntityInitClient"
     ]
   },

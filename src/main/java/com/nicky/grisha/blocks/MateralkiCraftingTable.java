@@ -19,7 +19,8 @@ public class MateralkiCraftingTable extends AbstractFurnaceBlock {
 	
 	@Override
     public BlockEntity createBlockEntity(BlockPos arg0,BlockState world) {
-        return new MateralkiCraftingTableEntity(arg0,world);
+        //return new MateralkiCraftingTableEntity(arg0,world);
+        return null;
     }
  
     @Override

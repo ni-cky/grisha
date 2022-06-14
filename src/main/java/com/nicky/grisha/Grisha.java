@@ -102,9 +102,9 @@ public class Grisha implements ModInitializer{
 
 	public static final Text TITLE = new TranslatableText("container.crafting");
 
-	public static final Block MATERIALKI_CRAFTING_TABLE;
-	@SuppressWarnings("rawtypes")
-	public static final BlockEntityType MATERIALKI_CRAFTING_TABLE_ENTITY;
+	//public static final Block MATERIALKI_CRAFTING_TABLE;
+	//@SuppressWarnings("rawtypes")
+	//public static final BlockEntityType MATERIALKI_CRAFTING_TABLE_ENTITY;
 
 	public static final RecipeType<? extends AbstractCookingRecipe> MATERIALKI_SMELTING_RECIPE_TYPE = null;
 	
@@ -120,11 +120,11 @@ public class Grisha implements ModInitializer{
 		//MATERIALKI_SMELTING_SCREEN_HANDLER= ScreenHandlerRegistry.registerSimple(Grisha.MATERIALKI_SMELTING_ID, GrishaSmeltingController::new);
 	
 		//Block
-		MATERIALKI_CRAFTING_TABLE = Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "materialki_crafting_table"), new MateralkiCraftingTable(FabricBlockSettings.of(Material.METAL)));
+		//MATERIALKI_CRAFTING_TABLE = Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "materialki_crafting_table"), new MateralkiCraftingTable(FabricBlockSettings.of(Material.METAL)));
         //BlockItem
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "materialki_crafting_table"), new BlockItem(MATERIALKI_CRAFTING_TABLE, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "materialki_crafting_table"), new BlockItem(MATERIALKI_CRAFTING_TABLE, new Item.Settings().group(ItemGroup.DECORATIONS)));
         //BlockEntity
-        MATERIALKI_CRAFTING_TABLE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MOD_ID, "materialki_crafting_table"), FabricBlockEntityTypeBuilder.create(MateralkiCraftingTableEntity::new, GrishaBlocks.STORAGE_BLOCK).build(null));
+        //MATERIALKI_CRAFTING_TABLE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MOD_ID, "materialki_crafting_table"), FabricBlockEntityTypeBuilder.create(MateralkiCraftingTableEntity::new, GrishaBlocks.STORAGE_BLOCK).build(null));
     
 	}
 	

@@ -3,7 +3,6 @@ package com.nicky.grisha.registry;
 import com.nicky.grisha.Grisha;
 import com.nicky.grisha.items.BagItem;
 import com.nicky.grisha.items.JurdaParemItem;
-import com.nicky.grisha.projectile_tutorial.PackedSnowballItem;
 import com.nicky.grisha.status_effects.JurdaParem;
 
 import net.minecraft.entity.EquipmentSlot;
@@ -78,9 +77,7 @@ public class GrishaItems {
     				  .build()));
       
       public static final Item CLOTH_BAG = new BagItem(new Item.Settings().group(ItemGroup.TOOLS).maxCount(1));
-      
-      public static final Item PackedSnowballItem = new PackedSnowballItem(new Item.Settings().group(ItemGroup.MISC).maxCount(16));
-      
+
 	public static void registerItems() {
 		Registry.register(Registry.ITEM, new Identifier(Grisha.MOD_ID, "core_cloth"), CORE_CLOTH);
 		Registry.register(Registry.ITEM, new Identifier(Grisha.MOD_ID, "pebble"), PEBBLE);

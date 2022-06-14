@@ -1,5 +1,9 @@
 package com.nicky.grisha.entity;
 
+import net.minecraft.block.AirBlock;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.util.registry.RegistryEntry;
 import org.jetbrains.annotations.Nullable;
 
 import com.nicky.grisha.entity.ai.goal.GrishaThrownAttackGoal;
@@ -34,7 +38,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 
 public class GrishaMaterialkiEntity extends GrishaEntity implements RangedAttackMob{
-	private final GrishaThrownAttackGoal<GrishaMaterialkiEntity> throwAttackGoal = new GrishaThrownAttackGoal<GrishaMaterialkiEntity>(this, 1.0D, 20, 15.0F);
+	private final GrishaThrownAttackGoal<GrishaMaterialkiEntity> throwAttackGoal = new GrishaThrownAttackGoal<>(this, 1.0D, 20, 15.0F);
 	private final MeleeAttackGoal meleeAttackGoal = new MeleeAttackGoal(this, 1.2D, false) {
 	      public void stop() {
 	         super.stop();
@@ -53,11 +57,11 @@ public class GrishaMaterialkiEntity extends GrishaEntity implements RangedAttack
     }
 	
 	protected void initGoals() {
-		this.goalSelector.add(3, new FleeEntityGoal<WolfEntity>(this, WolfEntity.class, 6.0F, 1.0D, 1.2D));
+		this.goalSelector.add(3, new FleeEntityGoal<>(this, WolfEntity.class, 6.0F, 1.0D, 1.2D));
 		this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
 		this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
 		this.goalSelector.add(6, new LookAroundGoal(this));
-		this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
+		this.targetSelector.add(1, new RevengeGoal(this));
 		//this.targetSelector.add(2, new FollowTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
 	}
 	
@@ -103,7 +107,7 @@ public class GrishaMaterialkiEntity extends GrishaEntity implements RangedAttack
      
      protected void initEquipment(LocalDifficulty difficulty) {
          super.initEquipment(difficulty);
-         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Registry.ITEM.getRandom(random)));
+         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Registry.ITEM.getRandom(random).isPresent() ? (ItemConvertible) Registry.ITEM.getRandom(random).get() : Registry.ITEM.get(0)));
          this.equipStack(EquipmentSlot.HEAD, new ItemStack(GrishaItems.KEFTA_PURPLE_HOOD));
      }
 
@@ -115,7 +119,7 @@ public class GrishaMaterialkiEntity extends GrishaEntity implements RangedAttack
         this.updateAttackType();
 
         this.applyAttributeModifiers(f);
-        return (EntityData)entityData;
+        return entityData;
      }
      
      public boolean canUseRangedWeapon(RangedWeaponItem weapon) {

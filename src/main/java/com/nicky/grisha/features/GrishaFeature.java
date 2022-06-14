@@ -13,51 +13,54 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.Heightmap.Type;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.heightprovider.HeightProvider;
 import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
+import net.minecraft.world.gen.placementmodifier.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseThresholdBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
+import java.util.Arrays;
 import java.util.List;
 
-@SuppressWarnings("deprecation")
 public class GrishaFeature implements ModInitializer {
 	
-		public static ConfiguredFeature<?, ?> ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE = Feature.ORE
-		    .configure(new OreFeatureConfig(
+		public static ConfiguredFeature<?, ?> ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE = new ConfiguredFeature<>(
+				Feature.ORE, new OreFeatureConfig(
 					OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
 		      		GrishaBlocks.PEBBLE_BLOCK.getDefaultState(),
 					20)); // Vein size
 
-		public static PlacedFeature ORE_PEBBLE_BLOCK_OVERWORLD_PLACED_FEATURE = ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE.withPlacement(
-			CountPlacementModifier.of(5), // number of veins per chunk
-			SquarePlacementModifier.of(), // spreading horizontally
-			HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))); // height
-	
-	  private static final Feature<SpiralFeatureConfig> SPIRAL = new SpiralFeature(SpiralFeatureConfig.CODEC);
-	 
-	  public static final ConfiguredFeature<?, ?> STONE_SPIRAL = SPIRAL.configure(new SpiralFeatureConfig(ConstantIntProvider.create(15), BlockStateProvider.of(Blocks.STONE.getDefaultState())));
+		public static PlacedFeature ORE_PEBBLE_BLOCK_OVERWORLD_PLACED_FEATURE = new PlacedFeature(
+				RegistryEntry.of(ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE),
+				Arrays.asList(
+						CountPlacementModifier.of(5), // number of veins per chunk
+						SquarePlacementModifier.of(), // spreading horizontally
+						HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64)) // height
+				));
 
 	  private static final Feature<WildJurdaFeatureConfig> WILD_JURDA = new WildJurdaFeature(WildJurdaFeatureConfig.CODEC);
 
-	  public static final ConfiguredFeature<?, ?> CONFIGURED_WILD_JURDA = WILD_JURDA.configure(new WildJurdaFeatureConfig(ConstantIntProvider.create(2)));
+	  public static final ConfiguredFeature<?, ?> CONFIGURED_WILD_JURDA = new ConfiguredFeature<>(WILD_JURDA, new WildJurdaFeatureConfig(ConstantIntProvider.create(2)));
 
-	  public static PlacedFeature PLACED_WILD_JURDA = CONFIGURED_WILD_JURDA.withPlacement(
+	  public static PlacedFeature PLACED_WILD_JURDA = new PlacedFeature(
+			  RegistryEntry.of(CONFIGURED_WILD_JURDA),
+			  Arrays.asList(
 			  NoiseThresholdCountPlacementModifier.of(-0.8, 15, 4),
 			  RarityFilterPlacementModifier.of(100),
 			  SquarePlacementModifier.of(),
 			  PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
 			  BiomePlacementModifier.of()
-	  );
+			  ));
 	/*public static final ConfiguredFeature<?, ?> CONFIGURED_WILD_JURDA = Feature.FLOWER.configure(
 			VegetationConfiguredFeatures.createRandomPatchFeatureConfig(
 					new WeightedBlockStateProvider(DataPool.builder()

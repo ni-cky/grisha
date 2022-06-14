@@ -20,14 +20,16 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MinecraftClient.class)
 public class GrishaMinecraftClientDoAttackMixin {
 	@Inject(method = "doAttack", at = @At("HEAD"),cancellable = true)
-	public void doAttack(CallbackInfo ci) {
+	public void doAttack(CallbackInfoReturnable<Boolean> cir) {
 		MinecraftClient minecraftClient = (MinecraftClient) (Object) this;
 		PlayerEntity player = minecraftClient.player;
 		System.out.println("Attack!");
+		if(player != null)
 		if(GrishaSmallScience.isWearingCorporalki(player))
 		if(GrishaSmallScienceUtil.isOnParem(player))
 		{
@@ -44,9 +46,9 @@ public class GrishaMinecraftClientDoAttackMixin {
             		if(y.world.isClient())
             			for(int i1 = 0; i1 < 8; ++i1) {
             				int i2 = 3840;
-            				double d = (double)(i2 >> 16 & 255) / 255.0D;
-            				double e = (double)(i2 >> 8 & 255) / 255.0D;
-            				double f = (double)(i2 >> 0 & 255) / 255.0D;
+            				double d = 0;
+            				double e = 0;
+            				double f = 0;
             				y.world.addParticle(ParticleTypes.EFFECT,y.getParticleX(0.5D), y.getRandomBodyY(), y.getParticleZ(0.5D), d, e, f);
             			}
 				}
