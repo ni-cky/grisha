@@ -5,8 +5,6 @@ import com.nicky.grisha.structures_classes.Campsite;
 import com.nicky.grisha.structures_classes.Small_Palace;
 import com.nicky.grisha.structures_classes.Stone;
 
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.StructureFeature;
 
@@ -32,11 +30,12 @@ public class GrishaStructures {
         // This is Fabric API's builder for structures.
         // It has many options to make sure your structure will spawn and work properly.
         // Give it your structure and the identifier you want for it.
-        StructureFeatureAccessor.callRegister(StructuresMain.MOD_ID + "stone", STONE, GenerationStep.Feature.SURFACE_STRUCTURES);
+        StructureFeature F = StructureFeatureAccessor.callRegister(StructuresMain.MOD_ID + ":stone", STONE, GenerationStep.Feature.SURFACE_STRUCTURES);
+        System.out.println("GrishaStructures, l34: "+F.toString());
 
-        StructureFeatureAccessor.callRegister(StructuresMain.MOD_ID + "small_palace", SMALL_PALACE, GenerationStep.Feature.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.callRegister(StructuresMain.MOD_ID + ":small_palace", SMALL_PALACE, GenerationStep.Feature.SURFACE_STRUCTURES);
 
-        StructureFeatureAccessor.callRegister(StructuresMain.MOD_ID + "campsite", CAMPSITE, GenerationStep.Feature.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.callRegister(StructuresMain.MOD_ID + ":campsite", CAMPSITE, GenerationStep.Feature.SURFACE_STRUCTURES);
 
         // Add more structures here and so on
     }

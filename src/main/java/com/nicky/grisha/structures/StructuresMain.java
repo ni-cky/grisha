@@ -3,6 +3,7 @@ package com.nicky.grisha.structures;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,7 +25,7 @@ public class StructuresMain implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
+        System.out.println("Hey");
         /*
          * We setup and register our structures here.
          * You should always register your stuff to prevent mod compatibility issue down the line.

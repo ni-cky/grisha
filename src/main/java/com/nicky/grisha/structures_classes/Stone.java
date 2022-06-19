@@ -5,6 +5,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.nicky.grisha.Grisha;
 import com.nicky.grisha.structures.StructuresMain;
 
+import net.fabricmc.loader.impl.util.log.Log;
+import net.fabricmc.loader.impl.util.log.LogCategory;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.*;
@@ -88,6 +90,7 @@ public class Stone extends StructureFeature<StructurePoolFeatureConfig> {
 
         // Now we test to make sure our structure is not spawning on water or other fluids.
         // You can do height check instead too to make it spawn at high elevations.
+        System.out.println("Stone: "+topBlock.getFluidState().isEmpty());
         return topBlock.getFluidState().isEmpty(); //landHeight > 100;
     }
 
@@ -96,6 +99,7 @@ public class Stone extends StructureFeature<StructurePoolFeatureConfig> {
         // Check if the spot is valid for our structure. This is just as another method for cleanness.
         // Returning an empty optional tells the game to skip this spot as it will not generate the structure.
         if (!Stone.isFeatureChunk(context)) {
+            Log.info(LogCategory.LOG, "Created Stone");
             return Optional.empty();
         }
 
