@@ -48,7 +48,6 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.stat.StatFormatter;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -100,7 +99,7 @@ public class Grisha implements ModInitializer{
 	
 	public static final Identifier TAKE_JURDA_PAREM = new Identifier(MOD_ID, "take_jurda_parem");
 
-	public static final Text TITLE = new TranslatableText("container.crafting");
+	public static final Text TITLE = Text.translatable("container.crafting");
 
 	//public static final Block MATERIALKI_CRAFTING_TABLE;
 	//@SuppressWarnings("rawtypes")

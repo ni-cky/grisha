@@ -14,7 +14,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
@@ -57,8 +57,7 @@ public class GrishaClient implements ClientModInitializer{
 		
 		System.out.println("------------ Was here ----------");
 		
-		EntityRendererRegistry.INSTANCE.register(GrishaThrownEntity.GrishaThrownEntityType, (context) ->
-		new GrishaThrownEntityRenderer(context));
+		EntityRendererRegistry.register(GrishaThrownEntity.GrishaThrownEntityType, GrishaThrownEntityRenderer::new);
 		receiveEntityPacket();
 		
 		/*ScreenRegistry.register(Grisha.MATERIALKI_SCREEN_HANDLER, new ScreenRegistry.Factory<GrishaCraftingController, GrishaCraftingScreen>()  {
@@ -146,7 +145,7 @@ public class GrishaClient implements ClientModInitializer{
 				Entity e = et.create(MinecraftClient.getInstance().world);
 				if (e == null)
 					throw new IllegalStateException("Failed to create instance of entity \"" + Registry.ENTITY_TYPE.getId(et) + "\"!");
-				e.updateTrackedPosition(pos);
+				e.updateTrackedPosition(pos.x, pos.y, pos.z);
 				e.setPos(pos.x, pos.y, pos.z);
 				e.setPitch(pitch);
 				e.setYaw(yaw);

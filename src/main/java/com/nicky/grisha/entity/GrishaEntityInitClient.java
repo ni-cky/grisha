@@ -6,8 +6,8 @@ import com.nicky.grisha.Grisha;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
@@ -22,15 +22,9 @@ public class GrishaEntityInitClient implements ClientModInitializer {
          *
          * Entity Renderers can also manipulate the model before it renders based on entity context (EndermanEntityRenderer#render).
          */
-        EntityRendererRegistry.INSTANCE.register(GrishaEntityInit.GRISHA_CORPORALKI_ENTITY, (context) -> {
-            return new GrishaEntityRenderer(context);
-        });
-        EntityRendererRegistry.INSTANCE.register(GrishaEntityInit.GRISHA_MATERIALKI_ENTITY, (context) -> {
-            return new GrishaEntityRenderer(context);
-        });
-        EntityRendererRegistry.INSTANCE.register(GrishaEntityInit.GRISHA_ETHERIALKI_ENTITY, (context) -> {
-            return new GrishaEntityRenderer(context);
-        });
+        EntityRendererRegistry.register(GrishaEntityInit.GRISHA_CORPORALKI_ENTITY, GrishaEntityRenderer::new);
+        EntityRendererRegistry.register(GrishaEntityInit.GRISHA_MATERIALKI_ENTITY, GrishaEntityRenderer::new);
+        EntityRendererRegistry.register(GrishaEntityInit.GRISHA_ETHERIALKI_ENTITY, GrishaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_GRISHA_ENTITY_LAYER, GrishaEntityModel::getTexturedModelData);
     }
 }
