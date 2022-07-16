@@ -19,9 +19,14 @@
     "campsite": {
       "trigger": "minecraft:location",
       "conditions": {
-        "location": {
-          "feature": "grisha:small_palace"
-        }
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "structure": "grisha:small_palace"
+            }
+          }
+        ]
       }
     }
   },

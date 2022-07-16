@@ -25,6 +25,7 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
@@ -36,6 +37,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -183,7 +185,9 @@ public class Grisha implements ModInitializer{
 			if(ItemStack.areEqual(player.getStackInHand(Hand.MAIN_HAND), (new ItemStack(Items.AIR,1)))) {	
 				if(entity instanceof LivingEntity)
 				if(GrishaSmallScience.isWearingCorporalki(player))
-				GrishaSmallScience.corporalkiActive(player,(LivingEntity)entity);
+				{
+					GrishaSmallScience.corporalkiActive(player,(LivingEntity)entity);
+				}
 			}
 			return ActionResult.PASS;
 		});
@@ -214,7 +218,11 @@ public class Grisha implements ModInitializer{
 		ServerTickEvents.END_SERVER_TICK.register((server)->{
 			
 		});
-		
+
+		ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killed) -> {
+					if(entity.isPlayer())
+						GrishaSmallScience.enchantAmplifier((PlayerEntity) entity);
+		});
 		
 	}
 

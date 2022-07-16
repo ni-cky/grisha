@@ -102,8 +102,6 @@ public class GrishaClient implements ClientModInitializer{
             		//ServerSide Packet verschicken
             		PacketByteBuf buf = PacketByteBufs.create();
             		ClientPlayNetworking.send(Grisha.ACTIVATE_CORPORALKI_PACKET_ID, buf);
-            		
-            		
             	}
             }
         });
@@ -122,7 +120,6 @@ public class GrishaClient implements ClientModInitializer{
         		ClientPlayNetworking.send(Grisha.START_PAREM_ADDICTION_PACKET_ID, buf);
 
         	}
-        	
         });
         
 

@@ -4,7 +4,6 @@
   "package": "com.nicky.grisha.structures.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "StructureFeatureAccessor"
   ],
   "client": [
   ],

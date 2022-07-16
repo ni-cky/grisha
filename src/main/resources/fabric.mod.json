@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "grisha",
-  "version": "1.4",
+  "version": "1.5",
 
   "name": "Grisha",
   "description": "This mod brings the magic system of the Shadow and Bone Netflix series into Minecraft.",
@@ -36,7 +36,7 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "java": ">=16"
   },
   "suggests": {

@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.HungerManager;
@@ -35,7 +36,7 @@ import net.minecraft.world.World;
 public class GrishaSmallScience {
 
 	protected static final Random RANDOM = new Random();
-	protected static double amplifierProbability = 0.2;
+	protected static double amplifierProbability = 1;//0.2;
 	private static final Item[] materialki = {GrishaItems.KEFTA_PURPLE_BOOTS, GrishaItems.KEFTA_PURPLE_LEGGINGS, GrishaItems.KEFTA_PURPLE_CHESTPLATE, GrishaItems.KEFTA_PURPLE_HOOD};
 	private static final Item[] etherealki = {GrishaItems.KEFTA_BLUE_BOOTS, GrishaItems.KEFTA_BLUE_LEGGINGS, GrishaItems.KEFTA_BLUE_CHESTPLATE, GrishaItems.KEFTA_BLUE_HOOD};
 	private static final Item[] corporalki = {GrishaItems.KEFTA_RED_BOOTS, GrishaItems.KEFTA_RED_LEGGINGS, GrishaItems.KEFTA_RED_CHESTPLATE, GrishaItems.KEFTA_RED_HOOD};
@@ -256,7 +257,10 @@ public class GrishaSmallScience {
 	public static void corporalkiActive(LivingEntity attacker, LivingEntity entity) {
 		System.out.println("ACTIVE!");
 		int i = GrishaSmallScienceUtil.holdsAmplifier(attacker) ? 2 : 1;
-		entity.addStatusEffect((new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, i)));
+
+		StatusEffect effect = StatusEffects.INSTANT_DAMAGE;
+		effect.applyInstantEffect(attacker, attacker, entity, i, 1);
+
 		System.out.println("World - corporalkiActive:"+entity.world.isClient());
 		if(entity.world.isClient())
 		for(int i1 = 0; i1 < 8; ++i1) {

@@ -10,14 +10,6 @@ import org.apache.logging.log4j.Logger;
 import com.nicky.grisha.Grisha;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.StructureFeature;
 
 public class StructuresMain implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();

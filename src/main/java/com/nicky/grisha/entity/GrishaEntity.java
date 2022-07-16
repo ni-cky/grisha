@@ -86,7 +86,7 @@ public class GrishaEntity extends HostileEntity {
     
     protected int getXpToDrop(PlayerEntity player) {
 
-        return super.getXpToDrop(player);
+        return super.getXpToDrop();
      }
     
     public void onTrackedDataSet(TrackedData<?> data) {
@@ -181,7 +181,7 @@ public class GrishaEntity extends HostileEntity {
        }
        
        protected void initEquipment(LocalDifficulty difficulty) {
-          super.initEquipment(difficulty);
+          super.initEquipment(this.random, difficulty);
        }
        
        public void writeCustomDataToNbt(NbtCompound nbt) {
@@ -192,8 +192,8 @@ public class GrishaEntity extends HostileEntity {
           super.readCustomDataFromNbt(nbt);
        }
 
-       public void onKilledOther(ServerWorld world, LivingEntity other) {
-          super.onKilledOther(world, other);
+       public boolean onKilledOther(ServerWorld world, LivingEntity other) {
+           return super.onKilledOther(world, other);
        }
        
        protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
@@ -220,7 +220,7 @@ public class GrishaEntity extends HostileEntity {
           if (entityData instanceof GrishaData) {
         	 GrishaData grishaData = (GrishaData)entityData;
              this.initEquipment(difficulty);
-             this.updateEnchantments(difficulty);
+             this.updateEnchantments(this.random,difficulty);
           }
 
           if (this.getEquippedStack(EquipmentSlot.HEAD).isEmpty()) {
