@@ -36,7 +36,7 @@ import net.minecraft.world.World;
 public class GrishaSmallScience {
 
 	protected static final Random RANDOM = new Random();
-	protected static double amplifierProbability = 0.2;
+	protected static double amplifierProbability = 0.02;
 	private static final Item[] materialki = {GrishaItems.KEFTA_PURPLE_BOOTS, GrishaItems.KEFTA_PURPLE_LEGGINGS, GrishaItems.KEFTA_PURPLE_CHESTPLATE, GrishaItems.KEFTA_PURPLE_HOOD};
 	private static final Item[] etherealki = {GrishaItems.KEFTA_BLUE_BOOTS, GrishaItems.KEFTA_BLUE_LEGGINGS, GrishaItems.KEFTA_BLUE_CHESTPLATE, GrishaItems.KEFTA_BLUE_HOOD};
 	private static final Item[] corporalki = {GrishaItems.KEFTA_RED_BOOTS, GrishaItems.KEFTA_RED_LEGGINGS, GrishaItems.KEFTA_RED_CHESTPLATE, GrishaItems.KEFTA_RED_HOOD};
