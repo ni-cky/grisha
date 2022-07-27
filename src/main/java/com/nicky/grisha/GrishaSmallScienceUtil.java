@@ -63,7 +63,7 @@ public class GrishaSmallScienceUtil {
 	    Vec3d cameraPos = entity.getCameraPosVec(tickDelta);
 	    Vec3d vec3d2 = cameraPos.add(player.getRotationVector().multiply(distance));
 		
-		EntityHitResult hit = ProjectileUtil.raycast(player, cameraPos, vec3d2, box, (entityx) -> !entityx.isSpectator() && entityx.collides(), distance);
+		EntityHitResult hit = ProjectileUtil.raycast(player, cameraPos, vec3d2, box, (entityx) -> !entityx.isSpectator(), distance);
 
 		if(hit != null)
 		switch(hit.getType()) {
