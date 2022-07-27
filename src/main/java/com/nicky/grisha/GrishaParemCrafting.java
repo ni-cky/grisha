@@ -36,7 +36,7 @@ public class GrishaParemCrafting {
 		if(canCraft(player)) {
 			LinkedList<TypedActionResult<ItemStack>> success = new LinkedList<TypedActionResult<ItemStack>>();
 			
-			Iterable<ItemStack> stacks = player.getItemsHand();
+			Iterable<ItemStack> stacks = player.getHandItems();
 			recipe_List.forEach((recipe)->{
 				boolean[] applies = {false,false};
 				stacks.forEach((stack)->{
