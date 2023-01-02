@@ -70,7 +70,19 @@ public class Generic3x1ContainerScreenHandler extends ScreenHandler {
 	      return itemStack;
 	   }
 
-	   public void close(PlayerEntity player) {
+	@Override
+	public ItemStack quickMove(PlayerEntity player, int slot) {
+		if (slot >= this.slots.size() - 9 && slot < this.slots.size()) {
+			Slot slot2 = (Slot)this.slots.get(slot);
+			if (slot2 != null && slot2.hasStack()) {
+				slot2.setStack(ItemStack.EMPTY);
+			}
+		}
+
+		return ItemStack.EMPTY;
+	}
+
+	public void close(PlayerEntity player) {
 	      super.close(player);
 	      this.inventory.onClose(player);
 	   }

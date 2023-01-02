@@ -22,6 +22,8 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
@@ -297,7 +299,7 @@ public class GrishaMaterialkiCraftingRecipe implements CraftingRecipe {
 
 		   public static Item getItem(JsonObject json) {
 		      String string = JsonHelper.getString(json, "item");
-		      Item item = (Item)Registry.ITEM.getOrEmpty(new Identifier(string)).orElseThrow(() -> {
+		      Item item = Registries.ITEM.getOrEmpty(new Identifier(string)).orElseThrow(() -> {
 		         return new JsonSyntaxException("Unknown item '" + string + "'");
 		      });
 		      if (item == Items.AIR) {
@@ -306,7 +308,12 @@ public class GrishaMaterialkiCraftingRecipe implements CraftingRecipe {
 		         return item;
 		      }
 		   }
+
+	@Override
+	public CraftingRecipeCategory getCategory() {
+		return CraftingRecipeCategory.MISC;
 	}
+}
 
 /*public class GrishaMaterialkiCraftingRecipe extends ShapedRecipe {
 

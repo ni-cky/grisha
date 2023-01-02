@@ -25,6 +25,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -70,26 +71,6 @@ public class Grisha implements ModInitializer{
 	public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(
 			new Identifier(MOD_ID, "general"))
 			.icon(() -> new ItemStack(GrishaItems.PEBBLE))
-			.entries(new FabricItemGroupEntries(FeatureSet.empty(),
-			List.of(
-				new ItemStack(GrishaItems.PEBBLE),
-				new ItemStack(GrishaItems.CORE_CLOTH),
-				new ItemStack(GrishaItems.JURDA_SEEDS),
-				new ItemStack(GrishaItems.REFINED_JURDA),
-				new ItemStack(GrishaItems.JURDA_PRIME),
-				new ItemStack(GrishaItems.JURDA_PAREM),
-				new ItemStack(GrishaBlocks.PEBBLE_BLOCK)
-			),
-			List.of(
-					new ItemStack(GrishaItems.PEBBLE),
-					new ItemStack(GrishaItems.CORE_CLOTH),
-					new ItemStack(GrishaItems.JURDA_SEEDS),
-					new ItemStack(GrishaItems.REFINED_JURDA),
-					new ItemStack(GrishaItems.JURDA_PRIME),
-					new ItemStack(GrishaItems.JURDA_PAREM),
-					new ItemStack(GrishaBlocks.PEBBLE_BLOCK)
-			),
-					true))
 			.build();
 	
 	public static final Identifier ACTIVATE_MATERIALKI_PACKET_ID = new Identifier(MOD_ID, "materialki");
@@ -155,6 +136,16 @@ public class Grisha implements ModInitializer{
 		GrishaBlocks.registerBlocks();
 		GrishaEnchantments.registerEnchantments();
 		GrishaThrownEntity.registerThrownEntities();
+
+		ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
+			content.add(GrishaItems.PEBBLE);
+			content.add(GrishaItems.CORE_CLOTH);
+			content.add(GrishaItems.JURDA_SEEDS);
+			content.add(GrishaItems.REFINED_JURDA);
+			content.add(GrishaItems.JURDA_PRIME);
+			content.add(GrishaItems.JURDA_PAREM);
+			content.add(GrishaItems.PEBBLE_BLOCK);
+		});
 		
 		//ContainerProviderRegistry.INSTANCE.registerFactory(new Identifier(Grisha.MOD_ID),(i,syncId,player,buf)-> new GrishaCraftingController(syncId,player.getInventory(),BlockContext.create(player.world,buf.readBlockPos())));
 		//MATERIALKI_SCREEN_HANDLER= ScreenHandlerRegistry.registerSimple(Grisha.MATERIALKI_CRAFTING_ID, (syncId,inventory)-> new GrishaCraftingController(syncId,inventory));

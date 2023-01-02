@@ -49,16 +49,16 @@ public class GrishaSmallScience {
     	
     	//Test for Materialki
     	for (ItemStack i : iterator){
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(materialki[0]))) {
+    		if(i.isItemEqual(new ItemStack(materialki[0]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(materialki[1]))) {
+    		if(i.isItemEqual(new ItemStack(materialki[1]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(materialki[2]))) {
+    		if(i.isItemEqual(new ItemStack(materialki[2]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(materialki[3]))) {
+    		if(i.isItemEqual(new ItemStack(materialki[3]))) {
     			count++;
     		}
     	}
@@ -71,16 +71,16 @@ public class GrishaSmallScience {
     	
     	//Test for Materialki
     	for (ItemStack i : iterator){
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(etherealki[0]))) {
+    		if(i.isItemEqual(new ItemStack(etherealki[0]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(etherealki[1]))) {
+    		if(i.isItemEqual(new ItemStack(etherealki[1]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(etherealki[2]))) {
+    		if(i.isItemEqual(new ItemStack(etherealki[2]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(etherealki[3]))) {
+    		if(i.isItemEqual(new ItemStack(etherealki[3]))) {
     			count++;
     		}
     	}
@@ -93,16 +93,16 @@ public class GrishaSmallScience {
     	
     	//Test for Materialki
     	for (ItemStack i : iterator){
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(corporalki[0]))) {
+    		if(i.isItemEqual(new ItemStack(corporalki[0]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(corporalki[1]))) {
+    		if(i.isItemEqual(new ItemStack(corporalki[1]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(corporalki[2]))) {
+    		if(i.isItemEqual(new ItemStack(corporalki[2]))) {
     			count++;
     		}
-    		if(i.isItemEqualIgnoreDamage(new ItemStack(corporalki[3]))) {
+    		if(i.isItemEqual(new ItemStack(corporalki[3]))) {
     			count++;
     		}
     	}
@@ -144,7 +144,7 @@ public class GrishaSmallScience {
 			if(ItemStack.areEqual(player.getStackInHand(Hand.MAIN_HAND), (new ItemStack(Items.AIR,1)))) {
 				player.world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_PHANTOM_FLAP, SoundCategory.NEUTRAL, 0.4F, 0.4F / (RANDOM.nextFloat() * 0.4F + 0.8F));
 				removeEnergy(player,1);
-			}else if(ItemStack.areItemsEqualIgnoreDamage(player.getStackInHand(Hand.MAIN_HAND), (new ItemStack(Items.FLINT_AND_STEEL,1)))){
+			}else if(ItemStack.areItemsEqual(player.getStackInHand(Hand.MAIN_HAND), (new ItemStack(Items.FLINT_AND_STEEL,1)))){
 				etherealkiActive(player);
 				player.world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_EVOKER_PREPARE_SUMMON, SoundCategory.NEUTRAL, 0.5F, 0.6F / (RANDOM.nextFloat() * 0.4F + 0.8F));
 				removeEnergy(player,4);

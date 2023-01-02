@@ -36,20 +36,20 @@ public class GrishaParemCrafting {
 		if(canCraft(player)) {
 			LinkedList<TypedActionResult<ItemStack>> success = new LinkedList<TypedActionResult<ItemStack>>();
 			
-			Iterable<ItemStack> stacks = player.getItemsHand();
+			Iterable<ItemStack> stacks = player.getHandItems();
 			recipe_List.forEach((recipe)->{
 				boolean[] applies = {false,false};
 				stacks.forEach((stack)->{
-						if(recipe[0].isItemEqualIgnoreDamage(stack) && stack.getCount() >= recipe[0].getCount() && !applies[0])
+						if(recipe[0].isItemEqual(stack) && stack.getCount() >= recipe[0].getCount() && !applies[0])
 							applies[0] = true;
-						else if(recipe[1].isItemEqualIgnoreDamage(stack) && stack.getCount() >= recipe[1].getCount())
+						else if(recipe[1].isItemEqual(stack) && stack.getCount() >= recipe[1].getCount())
 							applies[1] = true;
 				});
 				if(applies[0] && applies[1]){
 					stacks.forEach((stack)->{
-							if(recipe[0].isItemEqualIgnoreDamage(stack))
+							if(recipe[0].isItemEqual(stack))
 								stack.decrement(recipe[0].getCount());
-							else if(recipe[1].isItemEqualIgnoreDamage(stack))
+							else if(recipe[1].isItemEqual(stack))
 								stack.decrement(recipe[1].getCount());
 						
 					});

@@ -2,6 +2,7 @@ package com.nicky.grisha;
 
 import java.util.UUID;
 
+import net.minecraft.registry.Registries;
 import org.lwjgl.glfw.GLFW;
 
 import com.nicky.grisha.gui.GrishaSmeltingScreen;
@@ -129,7 +130,7 @@ public class GrishaClient implements ClientModInitializer{
 	public void receiveEntityPacket() {
 		ClientPlayNetworking.registerGlobalReceiver(PacketID, (ctx, handler, byteBuf, responseSender) -> {
 			System.out.println("Packet Sent");
-			EntityType<?> et = Registry.ENTITY_TYPE.get(byteBuf.readVarInt());
+			EntityType<?> et = Registries.ENTITY_TYPE.get(byteBuf.readVarInt());
 			UUID uuid = byteBuf.readUuid();
 			int entityId = byteBuf.readVarInt();
 			Vec3d pos = EntitySpawnPacket.PacketBufUtil.readVec3d(byteBuf);
@@ -141,7 +142,7 @@ public class GrishaClient implements ClientModInitializer{
 					throw new IllegalStateException("Tried to spawn entity in a null world!");
 				Entity e = et.create(MinecraftClient.getInstance().world);
 				if (e == null)
-					throw new IllegalStateException("Failed to create instance of entity \"" + Registry.ENTITY_TYPE.getId(et) + "\"!");
+					throw new IllegalStateException("Failed to create instance of entity \"" + Registries.ENTITY_TYPE.getId(et) + "\"!");
 				e.updateTrackedPosition(pos.x, pos.y, pos.z);
 				e.setPos(pos.x, pos.y, pos.z);
 				e.setPitch(pitch);

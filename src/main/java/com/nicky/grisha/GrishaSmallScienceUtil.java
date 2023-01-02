@@ -176,7 +176,7 @@ public class GrishaSmallScienceUtil {
                 cameraPos,
                 vec3d3,
                 box,
-                (entityx) -> !entityx.isSpectator() && entityx.collides(),
+                (entityx) -> !entityx.isSpectator() && entityx.isCollidable(),
                 extendedReach
         );
      

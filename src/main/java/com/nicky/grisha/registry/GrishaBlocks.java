@@ -12,6 +12,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
@@ -48,10 +49,10 @@ public class GrishaBlocks {
 
 	
 	public static void registerBlocks() {		
-		Registry.register(Registry.BLOCK, new Identifier(Grisha.MOD_ID,"jurda_block"), JURDA_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(Grisha.MOD_ID,"wild_jurda_block"), WILD_JURDA_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(Grisha.MOD_ID,"pebble_block"), PEBBLE_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(Grisha.MOD_ID,"storage_block"), STORAGE_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(Grisha.MOD_ID,"jurda_block"), JURDA_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(Grisha.MOD_ID,"wild_jurda_block"), WILD_JURDA_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(Grisha.MOD_ID,"pebble_block"), PEBBLE_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(Grisha.MOD_ID,"storage_block"), STORAGE_BLOCK);
 	}
 	
 	public static void registerBlocksClient() {

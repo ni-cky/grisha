@@ -4,6 +4,7 @@ import com.nicky.grisha.AmplifierEnchantment;
 import com.nicky.grisha.Grisha;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
 
@@ -13,7 +14,7 @@ public class GrishaEnchantments{
 	public static Enchantment AMPLIFIER = new AmplifierEnchantment();
 	
 	public static void registerEnchantments() {
-		Registry.register(Registry.ENCHANTMENT,new Identifier(Grisha.MOD_ID, "amplifier"), AMPLIFIER);
+		Registry.register(Registries.ENCHANTMENT,new Identifier(Grisha.MOD_ID, "amplifier"), AMPLIFIER);
 	}
 
 }

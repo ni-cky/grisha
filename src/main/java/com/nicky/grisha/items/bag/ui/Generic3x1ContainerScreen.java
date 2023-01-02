@@ -36,7 +36,7 @@ public class Generic3x1ContainerScreen extends HandledScreen<Generic3x1Container
    }
 
    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-      RenderSystem.setShader(GameRenderer::getPositionTexShader);
+      RenderSystem.setShader(GameRenderer::getRenderTypeTextProgram);
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
       RenderSystem.setShaderTexture(0, TEXTURE);
       int i = (this.width - this.backgroundWidth) / 2;
