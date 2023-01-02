@@ -3,7 +3,8 @@ package com.nicky.grisha.entity;
 import net.minecraft.block.AirBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
 import org.jetbrains.annotations.Nullable;
 
 import com.nicky.grisha.entity.ai.goal.GrishaThrownAttackGoal;
@@ -31,7 +32,6 @@ import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -107,7 +107,7 @@ public class GrishaMaterialkiEntity extends GrishaEntity implements RangedAttack
      
      protected void initEquipment(LocalDifficulty difficulty) {
          super.initEquipment(difficulty);
-         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Registry.ITEM.getRandom(random).isPresent() ? (ItemConvertible) Registry.ITEM.getRandom(random).get() : Registry.ITEM.get(0)));
+         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Registries.ITEM.getRandom(random).isPresent() ? (ItemConvertible) Registries.ITEM.getRandom(random).get() : Registries.ITEM.get(0)));
          this.equipStack(EquipmentSlot.HEAD, new ItemStack(GrishaItems.KEFTA_PURPLE_HOOD));
      }
 

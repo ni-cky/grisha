@@ -6,17 +6,24 @@ import com.nicky.grisha.registry.GrishaBlocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.impl.biome.modification.BuiltInRegistryKeys;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.BuiltinRegistries;
+import net.minecraft.structure.rule.BlockMatchRuleTest;
+import net.minecraft.structure.rule.RuleTest;
+import net.minecraft.structure.rule.RuleTestType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.Heightmap.Type;
+//import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.entry.RegistryEntry;
+//import net.minecraft.util.registry.RegistryEntry;
+//import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
@@ -36,8 +43,7 @@ public class GrishaFeature implements ModInitializer {
 	
 		public static ConfiguredFeature<?, ?> ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE = new ConfiguredFeature<>(
 				Feature.ORE, new OreFeatureConfig(
-					OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
-		      		GrishaBlocks.PEBBLE_BLOCK.getDefaultState(),
+					List.of(OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.STONE), Blocks.STONE.getDefaultState())),
 					20)); // Vein size
 
 		public static PlacedFeature ORE_PEBBLE_BLOCK_OVERWORLD_PLACED_FEATURE = new PlacedFeature(

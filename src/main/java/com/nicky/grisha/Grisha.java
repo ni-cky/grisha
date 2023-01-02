@@ -21,9 +21,10 @@ import com.nicky.grisha.status_effects.JurdaParemAddictionPhase2;
 import com.nicky.grisha.status_effects.JurdaParemAddictionPhase3;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -46,6 +47,9 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.resource.featuretoggle.FeatureFlag;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.stat.StatFormatter;
 import net.minecraft.stat.Stats;
@@ -53,25 +57,39 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
+
+import java.util.List;
 
 
 public class Grisha implements ModInitializer{
 
 	public static final String MOD_ID = "grisha";
 	
-	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
+	public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(
 			new Identifier(MOD_ID, "general"))
 			.icon(() -> new ItemStack(GrishaItems.PEBBLE))
-			.appendItems(stacks ->{
-				stacks.add(new ItemStack(GrishaItems.PEBBLE));
-				stacks.add(new ItemStack(GrishaItems.CORE_CLOTH));
-				stacks.add(new ItemStack(GrishaItems.JURDA_SEEDS));
-				stacks.add(new ItemStack(GrishaItems.REFINED_JURDA));
-				stacks.add(new ItemStack(GrishaItems.JURDA_PRIME));
-				stacks.add(new ItemStack(GrishaItems.JURDA_PAREM));
-				stacks.add(new ItemStack(GrishaBlocks.PEBBLE_BLOCK));			
-			})
+			.entries(new FabricItemGroupEntries(FeatureSet.empty(),
+			List.of(
+				new ItemStack(GrishaItems.PEBBLE),
+				new ItemStack(GrishaItems.CORE_CLOTH),
+				new ItemStack(GrishaItems.JURDA_SEEDS),
+				new ItemStack(GrishaItems.REFINED_JURDA),
+				new ItemStack(GrishaItems.JURDA_PRIME),
+				new ItemStack(GrishaItems.JURDA_PAREM),
+				new ItemStack(GrishaBlocks.PEBBLE_BLOCK)
+			),
+			List.of(
+					new ItemStack(GrishaItems.PEBBLE),
+					new ItemStack(GrishaItems.CORE_CLOTH),
+					new ItemStack(GrishaItems.JURDA_SEEDS),
+					new ItemStack(GrishaItems.REFINED_JURDA),
+					new ItemStack(GrishaItems.JURDA_PRIME),
+					new ItemStack(GrishaItems.JURDA_PAREM),
+					new ItemStack(GrishaBlocks.PEBBLE_BLOCK)
+			),
+					true))
 			.build();
 	
 	public static final Identifier ACTIVATE_MATERIALKI_PACKET_ID = new Identifier(MOD_ID, "materialki");
@@ -111,11 +129,11 @@ public class Grisha implements ModInitializer{
 	
 	
 	static {
-		MATERIALKI_CRAFTING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, "materialki_crafting"), new RecipeType<GrishaMaterialkiCraftingRecipe>() {
+		MATERIALKI_CRAFTING_RECIPE_TYPE = Registry.register(Registries.RECIPE_TYPE, new Identifier(MOD_ID, "materialki_crafting"), new RecipeType<GrishaMaterialkiCraftingRecipe>() {
             @Override
             public String toString() {return "materialki_crafting";}
         });
-		MATERIALKI_CRAFTING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MOD_ID, "materialki_crafting"), new GrishaMaterialkiCraftingRecipeSerializer());
+		MATERIALKI_CRAFTING_RECIPE_SERIALIZER = Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MOD_ID, "materialki_crafting"), new GrishaMaterialkiCraftingRecipeSerializer());
 	
 		MATERIALKI_SCREEN_HANDLER= ScreenHandlerRegistry.registerSimple(Grisha.MATERIALKI_CRAFTING_ID, GrishaCraftingController::new);
 		//MATERIALKI_SMELTING_SCREEN_HANDLER= ScreenHandlerRegistry.registerSimple(Grisha.MATERIALKI_SMELTING_ID, GrishaSmeltingController::new);
@@ -140,15 +158,15 @@ public class Grisha implements ModInitializer{
 		
 		//ContainerProviderRegistry.INSTANCE.registerFactory(new Identifier(Grisha.MOD_ID),(i,syncId,player,buf)-> new GrishaCraftingController(syncId,player.getInventory(),BlockContext.create(player.world,buf.readBlockPos())));
 		//MATERIALKI_SCREEN_HANDLER= ScreenHandlerRegistry.registerSimple(Grisha.MATERIALKI_CRAFTING_ID, (syncId,inventory)-> new GrishaCraftingController(syncId,inventory));
+
+		GrishaBlocks.STORAGE_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "grisha:storage",FabricBlockEntityTypeBuilder.create(StorageBlockEntity::new, GrishaBlocks.STORAGE_BLOCK).build(null));
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_effect"), JURDA_PAREM_EFFECT);
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase0"), JURDA_PAREM_ADDICTION_PHASE0);
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase1"), JURDA_PAREM_ADDICTION_PHASE1);
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase2"), JURDA_PAREM_ADDICTION_PHASE2);
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase3"), JURDA_PAREM_ADDICTION_PHASE3);
 		
-		GrishaBlocks.STORAGE_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "grisha:storage",FabricBlockEntityTypeBuilder.create(StorageBlockEntity::new, GrishaBlocks.STORAGE_BLOCK).build(null));
-		Registry.register(Registry.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_effect"), JURDA_PAREM_EFFECT);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase0"), JURDA_PAREM_ADDICTION_PHASE0);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase1"), JURDA_PAREM_ADDICTION_PHASE1);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase2"), JURDA_PAREM_ADDICTION_PHASE2);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier(MOD_ID, "jurda_parem_addiction_phase3"), JURDA_PAREM_ADDICTION_PHASE3);
-		
-		Registry.register(Registry.CUSTOM_STAT, "take_jurda_parem", TAKE_JURDA_PAREM);
+		Registry.register(Registries.CUSTOM_STAT, "take_jurda_parem", TAKE_JURDA_PAREM);
 		Stats.CUSTOM.getOrCreateStat(TAKE_JURDA_PAREM, StatFormatter.DEFAULT);
 		
 		ServerPlayNetworking.registerGlobalReceiver(ACTIVATE_MATERIALKI_PACKET_ID, (client, player, handler, buf, responseSender) -> {

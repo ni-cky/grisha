@@ -9,7 +9,8 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
 
 public class GrishaEntityInit implements ModInitializer {
     
@@ -20,19 +21,19 @@ public class GrishaEntityInit implements ModInitializer {
      * It has a hitbox size of .75x.75, or 12 "pixels" wide (3/4ths of a block).
      */
     public static final EntityType<GrishaCorporalkiEntity> GRISHA_CORPORALKI_ENTITY = Registry.register(
-            Registry.ENTITY_TYPE,
+            Registries.ENTITY_TYPE,
             new Identifier(Grisha.MOD_ID, "grisha_corporalki_entity"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GrishaCorporalkiEntity::new).dimensions(EntityDimensions.fixed(0.6f, 1.99f)).build()
     );
     
     public static final EntityType<GrishaMaterialkiEntity> GRISHA_MATERIALKI_ENTITY = Registry.register(
-            Registry.ENTITY_TYPE,
+            Registries.ENTITY_TYPE,
             new Identifier(Grisha.MOD_ID, "grisha_materialki_entity"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GrishaMaterialkiEntity::new).dimensions(EntityDimensions.fixed(0.6f, 1.99f)).build()
     );
     
     public static final EntityType<GrishaEtherealkiEntity> GRISHA_ETHERIALKI_ENTITY = Registry.register(
-            Registry.ENTITY_TYPE,
+            Registries.ENTITY_TYPE,
             new Identifier(Grisha.MOD_ID, "grisha_etherealki_entity"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GrishaEtherealkiEntity::new).dimensions(EntityDimensions.fixed(0.6f, 1.99f)).build()
     );

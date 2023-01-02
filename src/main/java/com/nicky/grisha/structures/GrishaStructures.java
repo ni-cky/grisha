@@ -5,7 +5,7 @@ import com.nicky.grisha.structures_classes.Small_Palace;
 import com.nicky.grisha.structures_classes.Stone;
 
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.structure.StructureType;
 

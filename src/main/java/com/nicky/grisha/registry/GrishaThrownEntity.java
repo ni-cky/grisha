@@ -19,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.Packet;
+import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -26,7 +27,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
 import net.minecraft.world.World;
 
 public class GrishaThrownEntity extends ThrownItemEntity {
@@ -44,7 +46,7 @@ public class GrishaThrownEntity extends ThrownItemEntity {
 					.build(); // VERY IMPORTANT DONT DELETE FOR THE LOVE OF GOD PSLSSSSSS
 	
 	public static void registerThrownEntities() {
-		Registry.register(Registry.ENTITY_TYPE,new Identifier(Grisha.MOD_ID, "grisha_thrown_entity"),GrishaThrownEntityType);
+		Registry.register(Registries.ENTITY_TYPE,new Identifier(Grisha.MOD_ID, "grisha_thrown_entity"),GrishaThrownEntityType);
 	}
 	
 	public GrishaThrownEntity(EntityType<? extends GrishaThrownEntity> entityType, World world) {
@@ -114,9 +116,9 @@ public class GrishaThrownEntity extends ThrownItemEntity {
 		   thrownByMob = true;
 	   }
 	   
-       @Override
-       public Packet<?> createSpawnPacket() {
+       /*@Override
+       public Packet<ClientPlayPacketListener> createSpawnPacket() {
     	   return EntitySpawnPacket.create(this, GrishaClient.PacketID);
-       }
+       }*/
 
 }

@@ -7,7 +7,8 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
 
 public class EntityTesting implements ModInitializer {
     
@@ -18,7 +19,7 @@ public class EntityTesting implements ModInitializer {
      * It has a hitbox size of .75x.75, or 12 "pixels" wide (3/4ths of a block).
      */
     public static final EntityType<CubeEntity> CUBE = Registry.register(
-            Registry.ENTITY_TYPE,
+            Registries.ENTITY_TYPE,
             new Identifier("entitytesting", "cube"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CubeEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
