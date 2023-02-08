@@ -8,7 +8,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.impl.biome.modification.BuiltInRegistryKeys;
 import net.minecraft.block.Blocks;
-import net.minecraft.registry.BuiltinRegistries;
+import net.minecraft.registry.*;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.RuleTestType;
@@ -17,9 +17,6 @@ import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 //import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
 //import net.minecraft.util.registry.RegistryEntry;
 //import net.minecraft.util.registry.RegistryKey;
@@ -40,7 +37,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GrishaFeature implements ModInitializer {
-	
+
+    public static final RegistryKey<ConfiguredFeature<?,?>> ORE_PEBBLE_BLOCK_CF = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"));
+
+    public static final RegistryKey<PlacedFeature> ORE_PEBBLE_BLOCK_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"));
+
 		public static ConfiguredFeature<?, ?> ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE = new ConfiguredFeature<>(
 				Feature.ORE, new OreFeatureConfig(
 					List.of(OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.STONE), Blocks.STONE.getDefaultState())),
