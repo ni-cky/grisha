@@ -22,16 +22,7 @@ public class GrishaStructures {
      * use them too directly from the registries. It great for mod/datapacks compatibility.
      */
     //public static StructureType<Stone> STONE;
-    public static final RegistryKey<Structure> STONE = RegistryKey.of(RegistryKeys.STRUCTURE, new Identifier(Grisha.MOD_ID, "stone"));
-    public static final RegistryKey<StructureSet> STONE_SET = RegistryKey.of(RegistryKeys.STRUCTURE_SET, new Identifier(Grisha.MOD_ID, "stone_set"));
-    public static final RegistryKey<StructurePool> STONE_TEMPLATE_POOL = RegistryKey.of(RegistryKeys.TEMPLATE_POOL, new Identifier(Grisha.MOD_ID, "stone/start_pool"));
-    public static final RegistryKey<Structure> SMALL_PALACE = RegistryKey.of(RegistryKeys.STRUCTURE, new Identifier(Grisha.MOD_ID, "small_palace"));
-    public static final RegistryKey<StructureSet> SMALL_PALACE_SET = RegistryKey.of(RegistryKeys.STRUCTURE_SET, new Identifier(Grisha.MOD_ID, "small_palace_set"));
-    public static final RegistryKey<StructurePool> SMALL_PALACE_TEMPLATE_POOL = RegistryKey.of(RegistryKeys.TEMPLATE_POOL, new Identifier(Grisha.MOD_ID, "small_palace/start_centre_back_pool"));
-    public static final RegistryKey<Structure> CAMPSITE = RegistryKey.of(RegistryKeys.STRUCTURE, new Identifier(Grisha.MOD_ID, "campsite"));
-    public static final RegistryKey<StructureSet> CAMPSITE_SET = RegistryKey.of(RegistryKeys.STRUCTURE_SET, new Identifier(Grisha.MOD_ID, "campsite_set"));
-    public static final RegistryKey<StructurePool> CAMPSITE_TEMPLATE_POOL = RegistryKey.of(RegistryKeys.TEMPLATE_POOL, new Identifier(Grisha.MOD_ID, "campsite/start_pool"));
-    //public static StructureType<Small_Palace> SMALL_PALACE;
+        //public static StructureType<Small_Palace> SMALL_PALACE;
     //public static StructureType<Campsite> CAMPSITE;
     
     /**
