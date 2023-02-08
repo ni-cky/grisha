@@ -1,6 +1,6 @@
 {
     // The base structure class to use for the behavior of the structure. (Like extra terrain checks and such)
-  "type": "grisha:stone",
+  "type": "minecraft:jigsaw",
   // The biome tag to use for what biomes that this structure can spawn in"
   "biomes": "#grisha:has_structure/code_structure_stone_biomes",
   // Maximum distance away from center that pieces can spawn. Cannot be greater than 128
@@ -11,7 +11,7 @@
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
   // This is how many pieces away from the starting piece a piece of the structure can spawn
   // Think of it like the length of the branch of the structure
-  "size": 30,
+  "size": 7,
   // What mobs can spawn over time in the structure.
   // Make sure you add the mob to the right category (monster, creature, etc)
   "spawn_overrides": {

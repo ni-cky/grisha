@@ -13,6 +13,12 @@
                   "Name": "grisha:wild_jurda_block"
                 },
                 "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "grisha:wild_jurda_block"
+                },
+                "weight": 1
               }
             ]
           }
