@@ -4,10 +4,10 @@ import com.nicky.grisha.Grisha;
 import com.nicky.grisha.registry.GrishaBlocks;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.biome.v1.*;
 import net.fabricmc.fabric.impl.biome.modification.BuiltInRegistryKeys;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityType;
 import net.minecraft.registry.*;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
@@ -35,65 +35,52 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiConsumer;
 
 public class GrishaFeature implements ModInitializer {
 
-    public static final RegistryKey<ConfiguredFeature<?,?>> ORE_PEBBLE_BLOCK_CF = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"));
+	public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_PEBBLE_BLOCK_CF = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"));
 
-    public static final RegistryKey<PlacedFeature> ORE_PEBBLE_BLOCK_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"));
+	public static final RegistryKey<PlacedFeature> ORE_PEBBLE_BLOCK_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"));
 
-		public static ConfiguredFeature<?, ?> ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE = new ConfiguredFeature<>(
-				Feature.ORE, new OreFeatureConfig(
-					List.of(OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.STONE), Blocks.STONE.getDefaultState())),
-					20)); // Vein size
+	public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_JURDA_CF = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Grisha.MOD_ID, "wild_jurda"));
 
-		public static PlacedFeature ORE_PEBBLE_BLOCK_OVERWORLD_PLACED_FEATURE = new PlacedFeature(
-				RegistryEntry.of(ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE),
-				Arrays.asList(
-						CountPlacementModifier.of(5), // number of veins per chunk
-						SquarePlacementModifier.of(), // spreading horizontally
-						HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64)) // height
-				));
+	public static final RegistryKey<PlacedFeature> WILD_JURDA_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Grisha.MOD_ID, "wild_jurda"));
 
-	  private static final Feature<WildJurdaFeatureConfig> WILD_JURDA = new WildJurdaFeature(WildJurdaFeatureConfig.CODEC);
+	@Override
+	public void onInitialize() {
+		BiomeModifications.create(new Identifier(Grisha.MOD_ID, "features"))
+				.add(ModificationPhase.ADDITIONS,
+						// we want our ore possibly everywhere in the overworld
+						BiomeSelectors.foundInOverworld(),
+						myOreModifier())
+				.add(ModificationPhase.ADDITIONS,
+						// we want our ore possibly everywhere in the overworld
+						BiomeSelectors.spawnsOneOf(EntityType.COW),
+						myJurdaModifier());
 
-	  public static final ConfiguredFeature<?, ?> CONFIGURED_WILD_JURDA = new ConfiguredFeature<>(WILD_JURDA, new WildJurdaFeatureConfig(ConstantIntProvider.create(2)));
-
-	  public static PlacedFeature PLACED_WILD_JURDA = new PlacedFeature(
-			  RegistryEntry.of(CONFIGURED_WILD_JURDA),
-			  Arrays.asList(
-			  NoiseThresholdCountPlacementModifier.of(-0.8, 15, 4),
-			  RarityFilterPlacementModifier.of(100),
-			  SquarePlacementModifier.of(),
-			  PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-			  BiomePlacementModifier.of()
-			  ));
-	/*public static final ConfiguredFeature<?, ?> CONFIGURED_WILD_JURDA = Feature.FLOWER.configure(
-			VegetationConfiguredFeatures.createRandomPatchFeatureConfig(
-					new WeightedBlockStateProvider(DataPool.builder()
-							.add(Blocks.POPPY.getDefaultState(), 2)
-							.add(Blocks.DANDELION.getDefaultState(), 1)),
-					64)));*/
-	  
-	  @Override
-	  public void onInitialize() {
-		  Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-				  new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"), ORE_PEBBLE_BLOCK_OVERWORLD_CONFIGURED_FEATURE);
-		  Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld"),
-				  ORE_PEBBLE_BLOCK_OVERWORLD_PLACED_FEATURE);
-		  BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
-				  RegistryKey.of(Registry.PLACED_FEATURE_KEY,
-						  new Identifier(Grisha.MOD_ID, "ore_pebble_block_overworld")));
-
-	    Registry.register(Registry.FEATURE, new Identifier(Grisha.MOD_ID, "wild_jurda"), WILD_JURDA);
-	       
-	    RegistryKey<ConfiguredFeature<?, ?>> wildJurda = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
-		            new Identifier(Grisha.MOD_ID, "configured_wild_jurda"));
-		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, wildJurda.getValue(), CONFIGURED_WILD_JURDA);
-		Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Grisha.MOD_ID, "placed_wild_jurda"),
-				  PLACED_WILD_JURDA);
-		       //
-		BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS,BiomeKeys.FOREST,BiomeKeys.SAVANNA,BiomeKeys.SUNFLOWER_PLAINS,BiomeKeys.FLOWER_FOREST), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY,
-				new Identifier(Grisha.MOD_ID, "placed_wild_jurda")));
-	  }
 	}
+
+
+	private static BiConsumer<BiomeSelectionContext, BiomeModificationContext> myOreModifier() {
+		return (biomeSelectionContext, biomeModificationContext) ->
+				// here we can potentially narrow our biomes down
+				// but here we won't
+				biomeModificationContext.getGenerationSettings().addFeature(
+						// ores to ores
+						GenerationStep.Feature.UNDERGROUND_ORES,
+						// this is the key of the placed feature
+						ORE_PEBBLE_BLOCK_PF);
+	}
+
+	private static BiConsumer<BiomeSelectionContext, BiomeModificationContext> myJurdaModifier() {
+		return (biomeSelectionContext, biomeModificationContext) ->
+				// here we can potentially narrow our biomes down
+				// but here we won't
+				biomeModificationContext.getGenerationSettings().addFeature(
+						// ores to ores
+						GenerationStep.Feature.VEGETAL_DECORATION,
+						// this is the key of the placed feature
+						WILD_JURDA_PF);
+	}
+}
