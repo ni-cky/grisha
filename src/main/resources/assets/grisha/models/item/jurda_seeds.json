@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "grisha:items/jurda_seeds"
+    "layer0": "grisha:item/jurda_seeds"
   }
 }

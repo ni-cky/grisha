@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "grisha:items/kefta_purple_hood"
+		"layer0": "grisha:item/kefta_purple_hood"
 	}
 }

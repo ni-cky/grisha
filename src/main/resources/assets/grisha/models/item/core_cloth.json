@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "grisha:items/core_cloth"
+    "layer0": "grisha:item/core_cloth"
   }
 }

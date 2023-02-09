@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "grisha:blocks/wild_jurda_block"
+    "cross": "grisha:block/wild_jurda_block"
   }
 }

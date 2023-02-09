@@ -1,7 +1,7 @@
 {
 	"parent": "minecraft:block/crop",
 	"textures": {
-	"crop": "grisha:blocks/jurda_block_stage2"
+	"crop": "grisha:block/jurda_block_stage2"
     }
 }
 

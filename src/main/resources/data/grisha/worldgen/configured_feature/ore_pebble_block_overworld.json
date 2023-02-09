@@ -6,7 +6,10 @@
     "targets": [
       {
         "state": {
-          "Name": "grisha:pebble_block"
+          "Name": "grisha:pebble_block",
+          "Properties": {
+            "values": {}
+          }
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
