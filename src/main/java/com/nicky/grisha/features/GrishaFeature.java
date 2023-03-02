@@ -9,6 +9,7 @@ import net.fabricmc.fabric.impl.biome.modification.BuiltInRegistryKeys;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.registry.*;
+import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.RuleTestType;
@@ -56,7 +57,7 @@ public class GrishaFeature implements ModInitializer {
 						myOreModifier())
 				.add(ModificationPhase.ADDITIONS,
 						// we want our ore possibly everywhere in the overworld
-						BiomeSelectors.spawnsOneOf(EntityType.COW),
+						BiomeSelectors.includeByKey(BiomeKeys.PLAINS,BiomeKeys.WINDSWEPT_HILLS,BiomeKeys.WINDSWEPT_FOREST,BiomeKeys.FOREST,BiomeKeys.SUNFLOWER_PLAINS,BiomeKeys.FLOWER_FOREST,BiomeKeys.BIRCH_FOREST,BiomeKeys.GROVE,BiomeKeys.MEADOW,BiomeKeys.WINDSWEPT_SAVANNA,BiomeKeys.SAVANNA),
 						myJurdaModifier());
 
 	}

@@ -1,9 +1,9 @@
 {
-  "feature": "minecraft:flower_default",
+  "feature": "grisha:wild_jurda",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 32
+      "chance": 64
     },
     {
       "type": "minecraft:in_square"

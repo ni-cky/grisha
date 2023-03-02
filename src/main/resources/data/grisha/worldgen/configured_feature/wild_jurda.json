@@ -10,10 +10,15 @@
             "entries": [
               {
                 "data": {
-                  "Name": "grisha:wild_jurda_block",
-                  "Properties": {}
+                  "Name": "grisha:wild_jurda_block"
                 },
                 "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "grisha:wild_jurda_block"
+                },
+                "weight": 1
               }
             ]
           }
